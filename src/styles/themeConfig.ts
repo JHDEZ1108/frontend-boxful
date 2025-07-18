@@ -5,9 +5,17 @@ export const lightTheme: ThemeConfig = {
   algorithm: theme.defaultAlgorithm,
   token: {
     colorPrimary: "#1677ff",
-    colorBgLayout: "#ffffff",
+    colorBgLayout: "#ffffff",         // fondo base (por ejemplo: body)
+    colorBgBase: "#f5f5f5",      // fondo secundario (cards, sections)
     colorText: "#1f1f1f",
+    colorLink: "#1677ff",
+    colorSuccess: "#52c41a",
+    colorWarning: "#faad14",
+    colorError: "#ff4d4f",
     borderRadius: 6,
+    fontSize: 14,
+    fontFamily: "Inter, sans-serif",
+    controlHeight: 36,
   },
 };
 
@@ -16,7 +24,15 @@ export const darkTheme: ThemeConfig = {
   token: {
     colorPrimary: "#00b96b",
     colorBgLayout: "#141414",
+    colorBgBase: "#1f1f1f",     // tono más claro que bgLayout para contraste
     colorText: "#ffffff",
+    colorLink: "#00b96b",
+    colorSuccess: "#52c41a",
+    colorWarning: "#faad14",
+    colorError: "#ff7875",
     borderRadius: 6,
+    fontSize: 14,
+    fontFamily: "Inter, sans-serif",
+    controlHeight: 36,
   },
 };
