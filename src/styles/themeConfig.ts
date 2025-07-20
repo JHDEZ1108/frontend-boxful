@@ -5,8 +5,8 @@ export const lightTheme: ThemeConfig = {
   algorithm: theme.defaultAlgorithm,
   token: {
     colorPrimary: "#1677ff",
-    colorBgLayout: "#ffffff",         // fondo base (por ejemplo: body)
-    colorBgBase: "#f5f5f5",      // fondo secundario (cards, sections)
+    colorBgLayout: "#ffffff",       
+    colorBgBase: "#f5f5f5",    
     colorText: "#1f1f1f",
     colorLink: "#1677ff",
     colorSuccess: "#52c41a",
@@ -24,7 +24,7 @@ export const darkTheme: ThemeConfig = {
   token: {
     colorPrimary: "#00b96b",
     colorBgLayout: "#141414",
-    colorBgBase: "#1f1f1f",     // tono más claro que bgLayout para contraste
+    colorBgBase: "#1f1f1f",  
     colorText: "#ffffff",
     colorLink: "#00b96b",
     colorSuccess: "#52c41a",
