@@ -5,14 +5,11 @@ import { Row, Col, Form, Input, Button, Typography, theme } from 'antd';
 import Image from 'next/image';
 import loginIllustration from '../../../../public/assets/images/login/login-illustration.svg';
 import { useRouter } from 'next/navigation';
+import type { LoginFormValues } from '../../../types/forms';
+import NextLink from 'next/link';
 
 const { Title, Text, Link } = Typography;
 const { useToken } = theme;
-
-interface LoginFormValues {
-  email: string;
-  password: string;
-}
 
 export default function LoginPage() {
   const { token } = useToken();
@@ -21,7 +18,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.matchMedia('(max-width: 768px)').matches);
     };
 
     checkIsMobile();
@@ -29,9 +26,12 @@ export default function LoginPage() {
     return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
 
-  const handleFinish = (values: LoginFormValues) => {
-    // TODO: Implement backend login logic with NestJS + MongoDB
+  const handleFinish = async (values: LoginFormValues) => {
     console.log('Form submitted:', values);
+
+    // TODO: Replace with actual API call
+    // Simulate successful login
+    await router.push('/order/new/step-1');
   };
 
   return (
@@ -63,20 +63,22 @@ export default function LoginPage() {
             <Form.Item
               label="Correo electrónico"
               name="email"
+              htmlFor="email"
               rules={[
                 { required: true, message: 'Por favor ingresa tu correo' },
                 { type: 'email', message: 'Correo inválido' },
               ]}
             >
-              <Input placeholder="Digita tu correo" size="large" />
+              <Input id="email" placeholder="Digita tu correo" size="large" />
             </Form.Item>
 
             <Form.Item
               label="Contraseña"
               name="password"
+              htmlFor="password"
               rules={[{ required: true, message: 'Por favor ingresa tu contraseña' }]}
             >
-              <Input.Password placeholder="Digita tu contraseña" size="large" />
+              <Input.Password id="password" placeholder="Digita tu contraseña" size="large" />
             </Form.Item>
 
             <Form.Item>
@@ -94,9 +96,9 @@ export default function LoginPage() {
 
           <Text>
             ¿Necesitas una cuenta?{' '}
-            <Link onClick={() => router.push('/register')} strong>
-              Regístrate aquí
-            </Link>
+            <NextLink href="/register" passHref>
+              <Link strong>Regístrate aquí</Link>
+            </NextLink>
           </Text>
         </div>
       </Col>

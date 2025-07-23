@@ -27,7 +27,9 @@ const NavbarHome: React.FC<NavbarHomeProps> = ({ isDarkMode, onToggleTheme }) =>
       }}
     >
       <Space align="center">
-        <BoxfulIcon />
+        <Space style={{ paddingTop: 35 }}>
+          <BoxfulIcon />
+        </Space>
         <Divider type="vertical" style={{ height: "24px", margin: "0 16px" }} />
       </Space>
 
